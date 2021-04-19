@@ -1,0 +1,744 @@
+@import 'tailwindcss/base'
+@import 'tailwindcss/components'
+
+a, a:focus
+    -webkit-tap-highlight-color: transparent
+
+.header__logo
+    display: none
+
+.page--viavino .header__logo--viavino,
+.page--rueDuVin .header__logo--rueDuVin,
+.page--mascarada .header__logo--mascarada
+    display: block
+
+.header__bar
+    justify-content: flex-end
+    z-index: 14
+
+.header__bar--sticky
+    @apply opacity-0 invisible pointer-events-none
+    transition: background-color .3s ease, opacity .3s ease, visibility .3s ease
+    will-change: background-color, opacity, visibility
+
+.header__bar--stuck
+    @apply bg-white visible opacity-100 pointer-events-auto
+
+.dialog
+    @apply top-0 w-full h-full fixed bg-white pointer-events-none
+    right: -100%
+    transition: right .3s ease
+    will-change: right
+
+.page--dialog
+    @apply overflow-hidden
+
+.page--dialog .dialog
+    @apply pointer-events-auto
+    right: 0
+
+.page
+    @apply font-body antialiased
+    color: #544545
+
+.container
+    @apply px-6
+    max-width: 960px
+
+.logo
+    @apply fill-rosato
+    transition: fill .5s ease
+    will-change: fill
+
+.logo--section
+    height: 65px
+    opacity: 0
+    visibility: hidden
+    top: 43px
+    left: 50%
+    transform: translateX(-50%)
+    transition: opacity 0.2s ease
+
+.logo--viavino
+    width: 150px
+
+.logo--rueDuVin
+    width: 131px
+
+.logo--mascarada
+    width: 161px
+
+.page--rosato .logo--viavino
+    fill: #E44D50
+
+.page--rosso .logo--viavino
+    @apply fill-rosso
+
+.page--bianco .logo--viavino
+    @apply fill-bianco
+
+.page--blanco .logo--mascarada
+    fill: #849B12
+
+.page--rosado .logo--mascarada
+    fill: #DA6B72
+
+.page--tinto .logo--mascarada
+    fill: #AA262A
+
+.page--sangria .logo--mascarada
+    fill: #E8803A
+
+.hamburger
+    @apply relative
+    width: 36px
+    height: 36px
+    left: -9px
+
+.hamburger__bar
+    @apply relative
+    @apply bg-black
+    @apply rounded-full
+    width: 18px
+    height: 2px
+    transition: transform .3s ease, width .3s ease, opacity .3s ease
+    will-change: transform, width, opacity
+
+    &:first-child
+        transform: translateY(-4px)
+
+    &:last-child
+        transform: translateY(4px) translateX(2px)
+        width: 14px
+
+.page--dialog .hamburger__bar
+    @apply opacity-0
+
+    &:first-child
+        @apply opacity-100
+        transform: rotate(45deg) translateX(1px) translateY(2px)
+
+    &:last-child
+        @apply opacity-100
+        width: 18px
+        transform: rotate(-45deg) translateX(1px) translateY(-2px)
+
+.background
+    background-color: #F9EEE2
+    left: 0
+
+.intro__links
+    display: flex
+    width: 100%
+    height: 96px
+    margin-top: 73px
+    border: 1px solid #F5BDBD
+
+.intro__link
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 33.333%
+    padding: 0 20px
+    cursor: pointer
+
+.intro__link:not(:first-child)
+    border-left: 1px solid #F5BDBD
+
+.intro__logo
+    width: 100%
+    height: 100%
+
+.intro__logo--viavino
+    max-width: 151px
+
+.intro__logo--mascarada
+    max-width: 161px
+    fill: #5F6361
+
+.intro__logo--rueDuVin
+    max-width: 131px
+
+.intro__decor--1
+    background: url(../img/hero.png) no-repeat bottom center
+
+.intro__heading
+    font-size: 40px
+    line-height: 40px
+
+.intro__links span,
+.footer__links span,
+.dialog__links span
+    font-size: .625rem
+
+.footer__links 
+    z-index: 14
+
+.main
+    width: 100%
+    height: 100vh
+    position: relative
+
+.brand-link
+    display: flex
+    align-items: center
+    
+    font-weight: 700
+    letter-spacing: 2px
+    text-transform: uppercase
+    color: #544545
+
+    position: absolute
+    top: 50px
+    z-index: 99
+    transition: opacity 0.2s ease-in-out
+
+.brand-link--left
+    left: 100px
+
+.brand-link--right
+    right: 100px
+
+.brand-link__icon
+    width: 24px
+    height: 24px
+    
+.brand-link__text + .brand-link__icon, .brand-link__icon + .brand-link__text
+    margin-left: 20px
+
+.brand-link--right .brand-link__icon
+    transform: rotateZ(180deg)
+
+.section
+    width: 100%
+
+.wine
+    height: 100vh
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.wine__can img
+    max-width: 216px
+    max-height: 428px
+    right: -50px
+
+.wine--rosato
+    background: linear-gradient(360deg, #FFFFFF 0%, #FAEDED 100%)
+
+.wine--rosso
+    background: linear-gradient(360deg, #FFFFFF 0%, #FAEDF2 100%)
+
+.wine--bianco
+    background: linear-gradient(360deg, #FFFFFF 0%, #FAF4ED 100%)
+
+.wine--blanco
+    background: linear-gradient(360deg, #FFFFFF 0%, #F0F3DD 100%)
+
+.wine--rosado
+    background: linear-gradient(360deg, #FFFFFF 0%, #FCEEEF 100%)
+
+.wine--tinto
+    background: linear-gradient(360deg, #FFFFFF 0%, #FDECED 100%)
+
+.wine--sangria
+    background: linear-gradient(360deg, #FFFFFF 0%, #FFF2E5 100%)
+
+.wine--blanc
+    background: linear-gradient(360deg, #FFFFFF 0%, #FFF8E6 100%)
+
+.wine--rose
+    background: linear-gradient(360deg, #FFFFFF 0%, #FCE9E9 100%)
+
+.wine--rouge
+    background: linear-gradient(360deg, #FFFFFF 0%, #FCE9E9 100%)
+
+.wine__type
+    font-size: 18px
+    letter-spacing: 4px
+
+.wine__name
+    font-size: 32px
+    line-height: 32px
+
+.wine__description
+    font-size: 16px
+    line-height: 24px
+
+.wine__features
+    font-size: 14px
+    line-height: 24px
+
+.wine--rosato .wine__decor--1 img
+    max-width: 136px
+    max-height: 243px
+    bottom: -30px
+
+.wine--rosso .wine__decor--1 img
+    max-width: 97px
+    max-height: 227px
+    left: -15px
+    bottom: -30px
+
+.wine--bianco .wine__decor--1 img
+    max-width: 163px
+    max-height: 156px
+    left: -20px
+    bottom: -15px
+
+.wine--tinto .wine__decor--1 img
+    max-width: 135px
+    max-height: 367px
+    bottom: -30px
+
+.wine__decor--2 svg
+    top: -30px
+    right: 10px
+
+.text-blanc
+    --text-opacity: 1
+    color: #E9AC01
+
+.text-rose
+    color: #E23B3B
+
+.text-green
+    color: #849B12
+
+.text-rosado
+    color: #DE4959
+
+.text-tinto
+    color: #C91217
+
+.text-sangria
+    color: #FF9025
+
+.fill-yellow
+    fill: #E9AC01
+
+.fill-rose
+    fill: #E23B3B
+
+.fill-green
+    fill: #849B12
+
+.fill-rosado
+    fill: #DE4959
+
+.fill-tinto
+    fill: #C91217
+
+.fill-sangria
+    fill: #FF9025
+
+.section--buttons
+    opacity: 0
+    visibility: hidden
+
+.section__button
+    width: 50%
+    height: 100%
+
+.section__button-image
+    transition: filter 0.3s ease-in-out
+    max-height: 100%
+    top: 50%
+
+.section__button--viavino
+    background-color: #FAEDED
+
+.section__button--rueDuVin
+    background-color: #F9EEE2
+
+.section__button--mascarada
+    background-color: #F0F3DD
+
+.section__button-logo 
+    left: 50%
+    transform: translateX(-50%)
+
+    transition: filter 0.3s ease-in-out
+
+.section__button-logo--mascarada
+    fill: #5F6361
+
+.section__button-arrow
+    width: 24px
+    height: 24px
+    opacity: 0.6
+
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
+
+
+.section__button:hover .section__button-image,
+.section__button:hover .section__button-logo
+    filter: brightness(120%)
+
+.section__button:hover .section__button-arrow
+    opacity: 1
+
+//viavino footer
+
+.page--viavino .section__button--viavino
+    display: none
+
+.page--viavino .section__button--mascarada
+    left: 0
+
+.page--viavino .section__button-image--mascarada
+    transform: translateY(-50%) rotateY(180deg)
+    left: 0
+
+.page--viavino .section__button--rueDuVin
+    right: 0
+
+.page--viavino .section__button-image--rueDuVin
+    right: 0
+    transform: translateY(-50%)
+
+.page--viavino .section__button-arrow--mascarada
+    left: 110px
+
+.page--viavino .section__button-arrow--rueDuVin
+    right: 110px
+    transform: rotateZ(180deg)
+
+//mascarada footer
+
+.page--mascarada .section__button--mascarada
+    display: none
+
+.page--mascarada .section__button--rueDuVin
+    left: 0
+
+.page--mascarada .section__button-image--rueDuVin
+    left: 0
+    transform: translateY(-50%) rotateY(180deg)
+
+.page--mascarada .section__button--viavino
+    right: 0
+
+.page--mascarada .section__button-image--viavino
+    right: 0
+    transform: translateY(-50%)
+
+.page--mascarada .section__button-arrow--rueDuVin
+    left: 110px
+
+.page--mascarada .section__button-arrow--viavino
+    right: 110px
+    transform: rotateZ(180deg)
+
+//rueDuVin footer
+
+.page--rueDuVin .section__button--rueDuVin
+    display: none
+
+.page--rueDuVin .section__button--viavino
+    left: 0
+
+.page--rueDuVin .section__button-image--viavino
+    left: 0
+    transform: translateY(-50%) rotateY(180deg)
+
+.page--rueDuVin .section__button--mascarada
+    right: 0
+
+.page--rueDuVin .section__button-image--mascarada
+    right: 0
+    transform: translateY(-50%)
+
+.page--rueDuVin .section__button-arrow--viavino
+    left: 110px
+
+.page--rueDuVin .section__button-arrow--mascarada
+    right: 110px
+    transform: rotateZ(180deg)
+
+@screen lg
+
+    .header__bar
+        bottom: 0
+        justify-content: flex-start
+
+    .container
+        @apply px-10
+
+    .intro__heading
+        font-size: 72px
+        line-height: 72px
+
+    .intro, .intro__decor, .intro__heading, .intro__text,
+    .wine, .wine__can, .wine__decor, .wine__type, .wine__name, .wine__description, .wine__features
+        @apply invisible opacity-0
+
+    .wine
+        background: none
+
+    .wine__can img
+        max-width: 371px
+        max-height: 734px
+        right: -105px
+        bottom: -5px
+
+    .wine--rosato .wine__decor--1 img
+        max-width: 213px
+        max-height: 379px
+        top: -60px
+        left: -40px
+
+    .wine--rosso .wine__decor--1 img
+        max-width: 151px
+        max-height: 355px
+        top: -95px
+        left: -35px
+
+    .wine--bianco .wine__decor--1 img
+        max-width: 255px
+        max-height: 243px
+        top: -20px
+        left: -25px
+
+    .wine__decor--2 svg
+        top: unset
+        right: unset
+
+    .wine__type
+        font-size: 20px
+
+    .wine__name
+        font-size: 72px
+        line-height: 72px
+
+    .wine__description
+        font-size: 18px
+        line-height: 32px
+
+    .wine__features
+        font-size: 18px
+
+    .background
+        transition: background-color .5s ease, left .5s ease
+        will-change: background-color, left
+        transform: translate3d(0, 0, 0)
+
+    .page--intro .intro
+        z-index: 1
+
+    .page--viavino:not(.page--intro) .section--viavino,
+    .page--rueDuVin:not(.page--intro) .section--rueDuVin,
+    .page--mascarada:not(.page--intro) .section--mascarada,
+    .page--footer .section--buttons 
+        z-index: 1
+
+    .page--rosato .background
+        background-color: #FAEDED
+
+    .page--rosso .background
+        background-color: #FAEDF2
+
+    .page--bianco .background
+        background-color: #FAF4ED
+
+    .page--blanc .background
+        background-color: #FFF8E6
+
+    .page--rose .background, .page--rouge .background
+        background-color: #FCE9E9
+
+    .page--blanco .background
+        background-color: #F0F3DD
+
+    .page--rosado .background
+        background-color: #FCEEEF
+
+    .page--tinto .background
+        background-color: #FDECED
+
+    .page--sangria .background
+        background-color: #FFF2E5
+
+    .page--rosato, .page--rosso, .page--bianco, .page--blanc, .page--rose, .page--rouge, .page--blanco, .page--rosado, .page--tinto, .page--sangria
+        .background
+            left: calc(50% + 310px)
+
+    .page--footer .background
+        left: 0
+
+    .page--footer.page--viavino .background
+        background-color: #F0F3DD
+
+    .page--footer.page--mascarada .background
+        background-color: #FFF8E6
+
+    .page--footer.page--rutDuVin .background
+        background-color: #FAEDED
+
+    .bullet.active
+        opacity: 1
+
+    .bullet.active .bullet__circle
+        transform: scale(2)
+
+    .bullet.active .bullet__outline
+        opacity: .3
+        transform: scale(1)
+
+    .bullet
+        @apply py-1 opacity-25
+        transition: opacity .5s ease
+        will-change: opacity
+        opacity: 0
+        transform: translateY(10%)
+
+        .bullet__circle
+            transition: fill .5s ease, transform .5s ease
+            will-change: fill, transform
+            transform-origin: center
+            transform: scale(1)
+
+        .bullet__outline
+            @apply opacity-0
+            transition: opacity .5s ease, transform .5s ease
+            will-change: opacity, transform
+            transform-origin: center
+            transform: scale(.5)
+
+        &:hover
+            @apply opacity-50
+
+            .bullet__circle
+                transform: scale(1.4)
+
+    .bullet--rosato .bullet__circle
+        fill: #E44D50
+
+    .bullet--rosato .bullet__outline
+        stroke: #E44D50
+
+    .bullet--rosso .bullet__circle
+        fill: #93273B
+
+    .bullet--rosso .bullet__outline
+        stroke: #93273B
+
+    .bullet--bianco .bullet__circle
+        fill: #E4B445
+
+    .bullet--bianco .bullet__outline
+        stroke: #E4B445
+
+    .bullet--blanco .bullet__circle
+        fill: #849B12
+
+    .bullet--blanco .bullet__outline
+        stroke: #849B12
+
+    .bullet--rosado .bullet__circle
+        fill: #DE4959
+
+    .bullet--rosado .bullet__outline
+        stroke: #DE4959
+
+    .bullet--tinto .bullet__circle
+        fill: #C91217
+
+    .bullet--tinto .bullet__outline
+        stroke: #C91217
+
+    .bullet--sangria .bullet__outline
+        stroke: #FF9025
+
+    .bullet--sangria .bullet__circle
+        fill: #FF9025
+
+    .bullet--blanc .bullet__circle
+        fill: #E9AC01
+
+    .bullet--blanc .bullet__outline
+        stroke: #E9AC01
+
+    .bullet--rose .bullet__circle
+        fill: #E23B3B
+
+    .bullet--rose .bullet__outline
+        stroke: #E23B3B
+
+    .bullet--rouge .bullet__outline
+        stroke: #E23B3B
+
+    .bullet--rouge .bullet__circle
+        fill: #E23B3B
+
+@import 'tailwindcss/utilities'
+
+@media (max-width: 1219px)
+
+    .brand-link
+        font-size: 14px
+
+    .brand-link__icon 
+        width: 19px
+        height: 19px
+
+    .brand-link__text + .brand-link__icon, .brand-link__icon + .brand-link__text 
+        margin-left: 10px
+
+    .brand-link--left
+        left: 20px
+
+    .brand-link--right
+        right: 20px
+
+@media (max-width: 1059px)
+
+    .brand-link
+        display: none
+
+    .section
+        display: none
+
+    .page--viavino .section--viavino, .page--rueDuVin .section--rueDuVin, .page--mascarada .section--mascarada
+        display: block
+
+    .wine
+        position: relative
+        height: auto
+        left: unset
+        top: unset
+        transform: unset
+
+    .section--buttons
+        display: block
+        opacity: 1
+        visibility: visible
+
+    .intro__text
+        margin-bottom: 0
+
+    .intro__wrapper
+        justify-content: flex-start
+
+@media (max-width: 989px)
+
+    .page--mascarada .section__button-arrow--rueDuVin 
+        left: 80px
+
+    .section__button-logo
+        max-width: 60%
+        top: 0
+
+
+@media (max-width: 479px)
+
+    .intro__links
+        margin-top: 40px
+        height: 70px
+
+    .intro__link
+        padding: 0 10px
+
+    .section__button-image
+        max-width: 150%
