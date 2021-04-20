@@ -5514,26 +5514,19 @@ var App = /*#__PURE__*/function () {
   function App() {
     _classCallCheck(this, App);
 
+    this.enabled = false;
     this.introSection = document.querySelector('.intro');
     this.intoLinks = document.querySelector('[data-intro-links]');
     this.introDecor = document.querySelector('.intro .intro__decor--1');
     this.introHeading = document.querySelector('.intro .intro__heading');
-    this.introText = document.querySelector('.intro .intro__text');
+    this.introTexts = document.querySelectorAll('[data-intro-text]');
     this.navigationWrapper = document.querySelector('[data-navigation]');
     this.links = document.querySelectorAll('[data-brand-link]');
     this.footerButtonsWrapper = document.querySelector('[data-footer-buttons]');
     this.sideLinks = document.querySelectorAll('[data-brand-link]');
-    this.wrapper = document.querySelector('[data-brand="viavino"]');
-    this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-    this.logo = this.wrapper.querySelector('[data-brand-logo]');
-    this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+    this.initMainItems("rueDuVin");
     this.initNavigation(this.wrapper);
-    this.timeline = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
-    this.currentScreen = 0;
-    this.initDefaults();
-    this.initBrandLinks();
     this.setActiveBrandClass();
-    this.animateIntroIn(this.timeline);
     this.handleGlobalClick = this.handleGlobalClick.bind(this);
     this.handleWheel = this.handleWheel.bind(this);
     this.handleMobileOff = this.handleMobileOff.bind(this);
@@ -5543,6 +5536,14 @@ var App = /*#__PURE__*/function () {
   }
 
   _createClass(App, [{
+    key: "initMainItems",
+    value: function initMainItems(attribute) {
+      this.wrapper = document.querySelector("[data-brand=\"".concat(attribute, "\"]"));
+      this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
+      this.logo = this.wrapper.querySelector('[data-brand-logo]');
+      this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+    }
+  }, {
     key: "setActiveBrandClass",
     value: function setActiveBrandClass() {
       var activeBrand = brands.find(function (brand) {
@@ -5553,7 +5554,7 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "handleWheel",
     value: function handleWheel(e) {
-      if (this.timeline.isActive() || document.body.clientWidth < 1060) return;
+      if (document.body.clientWidth < 1060 || this.timeline.isActive()) return;
 
       if (Math.sign(e.deltaY) * -1 > 0 && this.currentScreen > 0) {
         this.currentScreen--;
@@ -5562,13 +5563,6 @@ var App = /*#__PURE__*/function () {
         this.triggerAnimation('down');
         this.currentScreen++;
       }
-    }
-  }, {
-    key: "initDefaults",
-    value: function initDefaults() {
-      var defaults = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].defaults();
-      this.duration = defaults.duration;
-      this.enabled = false;
     }
   }, {
     key: "triggerAnimation",
@@ -5613,7 +5607,7 @@ var App = /*#__PURE__*/function () {
       }, this.calcDuration(1)).to(this.introHeading, {
         autoAlpha: 1,
         y: 0
-      }, this.calcDuration(2)).to(this.introText, {
+      }, this.calcDuration(2)).to(this.introTexts, {
         autoAlpha: 1,
         y: 0
       }, this.calcDuration(3));
@@ -5632,7 +5626,7 @@ var App = /*#__PURE__*/function () {
       }, this.calcDuration(0)).to(this.introHeading, {
         autoAlpha: 0,
         y: -10
-      }, this.calcDuration(1)).to(this.introText, {
+      }, this.calcDuration(1)).to(this.introTexts, {
         autoAlpha: 0,
         y: -10
       }, this.calcDuration(2)).set(this.introSection, {
@@ -5793,7 +5787,8 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "calcDuration",
     value: function calcDuration(d) {
-      return this.duration * d / 6;
+      var duration = 0.5;
+      return duration * d / 6;
     }
   }, {
     key: "off",
@@ -5801,13 +5796,16 @@ var App = /*#__PURE__*/function () {
       if (!this.enabled) return;
       var allWines = document.querySelectorAll('[data-brand-wine]');
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(document.body, {
-        className: 'page'
+        className: "page ".concat(this.activeClass)
       });
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introDecor, {
         clearProps: 'rotate,transform,opacity,visibility'
       });
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.introSection, this.intoLinks, this.introHeading, this.introText], {
-        clearProps: 'rotate,y,opacity,visibility'
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.introSection, this.intoLinks, this.introHeading, this.footerButtonsWrapper], {
+        clearProps: 'all'
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introTexts, {
+        clearProps: 'all'
       });
       allWines.forEach(function (wine) {
         var can = wine.querySelector('.wine__can');
@@ -5823,8 +5821,8 @@ var App = /*#__PURE__*/function () {
         gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(can, {
           clearProps: 'rotate,x,opacity,visibility'
         });
-        gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(brandWine, {
-          clearProps: 'opacity,visibility'
+        gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(wine, {
+          clearProps: 'all'
         });
       });
       this.enabled = false;
@@ -5843,9 +5841,16 @@ var App = /*#__PURE__*/function () {
         scale: 1.1,
         rotate: 0.01
       });
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.intoLinks, this.introHeading, this.introText], {
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.intoLinks, this.introHeading], {
         y: 10,
         rotate: 0.01
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introTexts, {
+        y: 10,
+        rotate: 0.01
+      });
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.footerButtonsWrapper, {
+        autoAlpha: 0
       });
       this.sideLinks.forEach(function (sideLink, i) {
         gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(sideLink, {
@@ -5870,6 +5875,14 @@ var App = /*#__PURE__*/function () {
           rotate: 0.01
         });
       });
+
+      if (document.body.clientWidth > 1060) {
+        this.initBrandLinks();
+        this.timeline = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
+        this.currentScreen = 0;
+        this.animateIntroIn();
+      }
+
       this.enabled = true;
     }
   }, {
@@ -5905,10 +5918,7 @@ var App = /*#__PURE__*/function () {
       var _this3 = this;
 
       var attribute = footerButton.getAttribute('data-footer-button');
-      this.wrapper = document.querySelector("[data-brand=\"".concat(attribute, "\"]"));
-      this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-      this.logo = this.wrapper.querySelector('[data-brand-logo]');
-      this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+      this.initMainItems(attribute);
       this.currentScreen = 1;
       this.initNavigation(this.wrapper);
       this.changeActiveBrand(attribute);
@@ -5925,7 +5935,7 @@ var App = /*#__PURE__*/function () {
             behavior: 'smooth'
           });
         }, 0).add(function () {
-          document.body.className = "page page--".concat(attribute, " ").concat(_this3.activeClass);
+          document.body.className = "page ".concat(_this3.activeClass);
         }, 0.5);
       }
     }
@@ -5991,10 +6001,7 @@ var App = /*#__PURE__*/function () {
     key: "handleIntroLinkClick",
     value: function handleIntroLinkClick(introLink) {
       var attribute = introLink.getAttribute('data-intro-link');
-      this.wrapper = document.querySelector("[data-brand=\"".concat(attribute, "\"]"));
-      this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-      this.logo = this.wrapper.querySelector('[data-brand-logo]');
-      this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+      this.initMainItems(attribute);
       this.changeActiveBrand(attribute);
 
       if (document.body.clientWidth > 1060) {
@@ -6028,6 +6035,7 @@ var App = /*#__PURE__*/function () {
     key: "handleMobileOff",
     value: function handleMobileOff() {
       if (document.body.clientWidth < 1060) {
+        this.enabled = true;
         this.off();
       } else {
         this.on();

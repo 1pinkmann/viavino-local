@@ -8,32 +8,21 @@ let brands = [
 
 class App {
     constructor() {
+        this.enabled = false;
         this.introSection = document.querySelector('.intro');
         this.intoLinks = document.querySelector('[data-intro-links]');
         this.introDecor = document.querySelector('.intro .intro__decor--1');
         this.introHeading = document.querySelector('.intro .intro__heading');
-        this.introText = document.querySelector('.intro .intro__text');
+        this.introTexts = document.querySelectorAll('[data-intro-text]');
         this.navigationWrapper = document.querySelector('[data-navigation]');
         this.links = document.querySelectorAll('[data-brand-link]');
         this.footerButtonsWrapper = document.querySelector('[data-footer-buttons]');
         this.sideLinks = document.querySelectorAll('[data-brand-link]');
 
-        this.wrapper = document.querySelector('[data-brand="viavino"]');
-        this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-        this.logo = this.wrapper.querySelector('[data-brand-logo]');
-        this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+        this.initMainItems("rueDuVin");
 
         this.initNavigation(this.wrapper);
-
-        this.timeline = gsap.timeline();
-
-        this.currentScreen = 0;
-
-        this.initDefaults();
-        this.initBrandLinks();
         this.setActiveBrandClass();
-
-        this.animateIntroIn(this.timeline);
 
         this.handleGlobalClick = this.handleGlobalClick.bind(this);
         this.handleWheel = this.handleWheel.bind(this);
@@ -43,7 +32,14 @@ class App {
 
         window.addEventListener('wheel', this.handleWheel);
 
-        window.addEventListener('resize', this.handleMobileOff)
+        window.addEventListener('resize', this.handleMobileOff);
+    }
+
+    initMainItems(attribute) {
+        this.wrapper = document.querySelector(`[data-brand="${attribute}"]`);
+        this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
+        this.logo = this.wrapper.querySelector('[data-brand-logo]');
+        this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
     }
 
     setActiveBrandClass() {
@@ -55,7 +51,7 @@ class App {
     }
 
     handleWheel(e) {
-        if (this.timeline.isActive() || (document.body.clientWidth < 1060)) return;
+        if ((document.body.clientWidth < 1060) || this.timeline.isActive()) return;
 
         if ((Math.sign(e.deltaY) * -1 > 0) && (this.currentScreen > 0)) {
             this.currentScreen--;
@@ -65,13 +61,6 @@ class App {
             this.triggerAnimation('down');
             this.currentScreen++;
         }
-    }
-
-    initDefaults() {
-        let defaults = gsap.defaults()
-
-        this.duration = defaults.duration
-        this.enabled = false
     }
 
     triggerAnimation(direction) {
@@ -121,7 +110,7 @@ class App {
             .to(this.introDecor, { autoAlpha: 1, scale: 1, duration: this.calcDuration(8) }, this.calcDuration(0))
             .to(this.intoLinks, { autoAlpha: 1, y: 0 }, this.calcDuration(1))
             .to(this.introHeading, { autoAlpha: 1, y: 0 }, this.calcDuration(2))
-            .to(this.introText, { autoAlpha: 1, y: 0 }, this.calcDuration(3))
+            .to(this.introTexts, { autoAlpha: 1, y: 0 }, this.calcDuration(3))
     }
 
     animateIntroOut() {
@@ -131,7 +120,7 @@ class App {
             .to(this.introDecor, { autoAlpha: 0, scale: 1.1, duration: this.calcDuration(8) }, this.calcDuration(0))
             .to(this.intoLinks, { autoAlpha: 0, y: -10 }, this.calcDuration(0))
             .to(this.introHeading, { autoAlpha: 0, y: -10 }, this.calcDuration(1))
-            .to(this.introText, { autoAlpha: 0, y: -10 }, this.calcDuration(2))
+            .to(this.introTexts, { autoAlpha: 0, y: -10 }, this.calcDuration(2))
             .set(this.introSection, { autoAlpha: 0, immediateRender: false })
             .to(navigationLinks, { autoAlpha: 1, yPercent: 0, stagger: 0.1 }, this.calcDuration(2))
     }
@@ -233,25 +222,29 @@ class App {
     }
 
     calcDuration(d) {
-        return this.duration * d / 6;
+        let duration = 0.5;
+        return duration * d / 6;
     }
 
     off() {
-        if (!this.enabled)
-            return
+        if (!this.enabled) return
 
         let allWines = document.querySelectorAll('[data-brand-wine]');
 
         gsap.set(document.body, {
-            className: 'page'
+            className: `page ${this.activeClass}`
         })
 
         gsap.set(this.introDecor, {
             clearProps: 'rotate,transform,opacity,visibility'
         })
 
-        gsap.set([this.introSection, this.intoLinks, this.introHeading, this.introText], {
-            clearProps: 'rotate,y,opacity,visibility'
+        gsap.set([this.introSection, this.intoLinks, this.introHeading, this.footerButtonsWrapper], {
+            clearProps: 'all'
+        });
+
+        gsap.set(this.introTexts, {
+            clearProps: 'all'
         })
 
         allWines.forEach(wine => {
@@ -271,17 +264,16 @@ class App {
                 clearProps: 'rotate,x,opacity,visibility'
             });
 
-            gsap.set(brandWine, {
-                clearProps: 'opacity,visibility'
+            gsap.set(wine, {
+                clearProps: 'all'
             })
         })
 
-        this.enabled = false
+        this.enabled = false;
     }
 
     on() {
-        if (this.enabled)
-            return
+        if (this.enabled) return
 
         let allWines = document.querySelectorAll('[data-brand-wine]');
 
@@ -297,9 +289,18 @@ class App {
             rotate: 0.01
         })
 
-        gsap.set([this.intoLinks, this.introHeading, this.introText], {
+        gsap.set([this.intoLinks, this.introHeading], {
             y: 10,
             rotate: 0.01
+        })
+
+        gsap.set(this.introTexts, {
+            y: 10,
+            rotate: 0.01
+        })
+
+        gsap.set(this.footerButtonsWrapper, {
+            autoAlpha: 0
         })
 
         this.sideLinks.forEach((sideLink, i) => {
@@ -329,7 +330,15 @@ class App {
             })
         })
 
-        this.enabled = true
+        if (document.body.clientWidth > 1060) {
+            this.initBrandLinks();
+            this.timeline = gsap.timeline();
+    
+            this.currentScreen = 0;
+            this.animateIntroIn();
+        }
+    
+        this.enabled = true;
     }
 
     handleGlobalClick(e) {
@@ -366,10 +375,7 @@ class App {
     handleFooterButtonClick(footerButton) {
         let attribute = footerButton.getAttribute('data-footer-button');
 
-        this.wrapper = document.querySelector(`[data-brand="${attribute}"]`);
-        this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-        this.logo = this.wrapper.querySelector('[data-brand-logo]');
-        this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
+        this.initMainItems(attribute);
 
         this.currentScreen = 1;
 
@@ -395,7 +401,7 @@ class App {
                     });
                 }, 0)
                 .add(() => {
-                    document.body.className = `page page--${attribute} ${this.activeClass}`;
+                    document.body.className = `page ${this.activeClass}`;
                 }, 0.5)
         }
     }
@@ -478,11 +484,7 @@ class App {
 
     handleIntroLinkClick(introLink) {
         let attribute = introLink.getAttribute('data-intro-link');
-        this.wrapper = document.querySelector(`[data-brand="${attribute}"]`);
-        this.totalScreens = this.wrapper.querySelectorAll('[data-brand-wine]');
-        this.logo = this.wrapper.querySelector('[data-brand-logo]');
-        this.brandWines = this.wrapper.querySelectorAll('[data-brand-wine]');
-
+        this.initMainItems(attribute);
         this.changeActiveBrand(attribute);
 
         if (document.body.clientWidth > 1060) {
@@ -508,6 +510,7 @@ class App {
 
     handleMobileOff() {
         if (document.body.clientWidth < 1060) {
+            this.enabled = true;
             this.off();
         } else {
             this.on();
