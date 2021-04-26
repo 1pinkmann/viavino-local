@@ -16,7 +16,7 @@
 <body class="page">
     <!-- header -->
     <header role="banner" class="header">
-        <div class="header__bar absolute flex items-center h-20 lg:h-32 w-full px-8 lg:px-16">
+        <!-- <div class="header__bar absolute flex items-center h-20 lg:h-32 w-full px-8 lg:px-16">
             <ul class="flex items-center -mx-4 lg:mx-0">
                 <?php foreach ($available_languages as $available_language) : ?>
                     <li>
@@ -26,18 +26,24 @@
                     </li>
                 <?php endforeach; ?>
             </ul>
-        </div>
+        </div> -->
 
         <div class="header__bar header__bar--sticky fixed flex justify-center items-center h-20 w-full px-8 z-10 lg:hidden">
-            <svg class="header__logo header__logo--viavino logo logo--viavino">
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#viavino" />
-            </svg>
-            <svg class="header__logo header__logo--rueDuVin logo logo--rueDuVin">
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#rueDuVin" />
-            </svg>
-            <svg class="header__logo header__logo--mascarada logo logo--mascarada">
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#mascarada" />
-            </svg>
+            <button class="header__logo header__logo--viavino logo logo--viavino" data-header-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#viavino" />
+                </svg>
+            </button>
+            <button class="header__logo header__logo--rueDuVin logo logo--rueDuVin" data-header-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#rueDuVin" />
+                </svg>
+            </button>
+            <button class="header__logo header__logo--mascarada logo logo--mascarada" data-header-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#mascarada" />
+                </svg>
+            </button>
         </div>
 
         <div class="header__bar fixed flex justify-start items-center h-20 px-8 z-20 lg:hidden">
@@ -122,9 +128,11 @@
         <section class="section section--viavino lg:h-screen lg:fixed" data-brand="viavino">
 
             <!-- logo -->
-            <svg class="logo logo--section logo--viavino absolute" data-brand-logo>
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#viavino" />
-            </svg>
+            <button class="logo logo--section logo--viavino absolute" data-brand-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#viavino" />
+                </svg>
+            </button>
             <!-- /logo -->
 
             <!-- rosato -->
@@ -377,9 +385,11 @@
         <section class="section section--rueDuVin lg:h-screen lg:fixed" data-brand="rueDuVin">
 
             <!-- logo -->
-            <svg class="logo logo--section logo--rueDuVin absolute" data-brand-logo>
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#rueDuVin" />
-            </svg>
+            <button class="logo logo--section logo--rueDuVin absolute" data-brand-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#rueDuVin" />
+                </svg>
+            </button>
             <!-- /logo -->
 
             <!-- blanc -->
@@ -636,9 +646,11 @@
         <section class="section section--mascarada lg:h-screen lg:fixed" data-brand="mascarada">
 
             <!-- logo -->
-            <svg class="logo logo--section logo--mascarada absolute" data-brand-logo>
-                <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#mascarada" />
-            </svg>
+            <button class="logo logo--section logo--mascarada absolute" data-brand-logo>
+                <svg class="logo__icon">
+                    <use xlink:href="<?php echo $base_url; ?>/build/sprite.svg#mascarada" />
+                </svg>
+            </button>
             <!-- /logo -->
 
             <!-- blanco -->

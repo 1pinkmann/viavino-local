@@ -5498,7 +5498,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var brands = [{
   name: 'viavino',
-  active: true,
+  active: false,
   title: 'Viavino'
 }, {
   name: 'mascarada',
@@ -5506,7 +5506,7 @@ var brands = [{
   title: 'Mascarada'
 }, {
   name: 'rueDuVin',
-  active: false,
+  active: true,
   title: 'Rue Du Vin'
 }];
 
@@ -5524,6 +5524,11 @@ var App = /*#__PURE__*/function () {
     this.links = document.querySelectorAll('[data-brand-link]');
     this.footerButtonsWrapper = document.querySelector('[data-footer-buttons]');
     this.sideLinks = document.querySelectorAll('[data-brand-link]');
+    this.timeline = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
+      defaults: {
+        ease: 'Power4.inOut'
+      }
+    });
     this.initMainItems("rueDuVin");
     this.initNavigation(this.wrapper);
     this.setActiveBrandClass();
@@ -5604,13 +5609,16 @@ var App = /*#__PURE__*/function () {
       }, this.calcDuration(0)).to(this.intoLinks, {
         autoAlpha: 1,
         y: 0
-      }, this.calcDuration(1)).to(this.introHeading, {
+      }, this.calcDuration(1)).to(this.introTexts[0], {
         autoAlpha: 1,
         y: 0
-      }, this.calcDuration(2)).to(this.introTexts, {
+      }, this.calcDuration(1.5)).to(this.introHeading, {
         autoAlpha: 1,
         y: 0
-      }, this.calcDuration(3));
+      }, this.calcDuration(2)).to(this.introTexts[1], {
+        autoAlpha: 1,
+        y: 0
+      }, this.calcDuration(2.5));
     }
   }, {
     key: "animateIntroOut",
@@ -5623,10 +5631,13 @@ var App = /*#__PURE__*/function () {
       }, this.calcDuration(0)).to(this.intoLinks, {
         autoAlpha: 0,
         y: -10
-      }, this.calcDuration(0)).to(this.introHeading, {
+      }, this.calcDuration(0)).to(this.introTexts[0], {
         autoAlpha: 0,
         y: -10
-      }, this.calcDuration(1)).to(this.introTexts, {
+      }, this.calcDuration(0.5)).to(this.introHeading, {
+        autoAlpha: 0,
+        y: -10
+      }, this.calcDuration(1)).to(this.introTexts[1], {
         autoAlpha: 0,
         y: -10
       }, this.calcDuration(2)).set(this.introSection, {
@@ -5807,6 +5818,9 @@ var App = /*#__PURE__*/function () {
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introTexts, {
         clearProps: 'all'
       });
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.logo, {
+        autoAlpha: 0
+      });
       allWines.forEach(function (wine) {
         var can = wine.querySelector('.wine__can');
         var decor1 = wine.querySelector('.wine__decor--1');
@@ -5839,15 +5853,15 @@ var App = /*#__PURE__*/function () {
       });
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introDecor, {
         scale: 1.1,
-        rotate: 0.01
+        rotate: 0.0000001
       });
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.intoLinks, this.introHeading], {
         y: 10,
-        rotate: 0.01
+        rotate: 0.0000001
       });
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.introTexts, {
         y: 10,
-        rotate: 0.01
+        rotate: 0.0000001
       });
       gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.footerButtonsWrapper, {
         autoAlpha: 0
@@ -5868,21 +5882,16 @@ var App = /*#__PURE__*/function () {
         var features = wine.querySelector('.wine__features');
         gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([decor1, decor2, type, heading, texts, features], {
           y: 10,
-          rotate: 0.01
+          rotate: 0.0000001
         });
         gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(can, {
           x: 20,
-          rotate: 0.01
+          rotate: 0.0000001
         });
       });
-
-      if (document.body.clientWidth > 1060) {
-        this.initBrandLinks();
-        this.timeline = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
-        this.currentScreen = 0;
-        this.animateIntroIn();
-      }
-
+      this.initBrandLinks();
+      this.currentScreen = 0;
+      this.animateIntroIn();
       this.enabled = true;
     }
   }, {
@@ -5892,6 +5901,9 @@ var App = /*#__PURE__*/function () {
       var navLink = e.target.closest('[data-gsap-target-id]');
       var introLink = e.target.closest('[data-intro-link]');
       var footerButton = e.target.closest('[data-footer-button]');
+      var brandLogo = e.target.closest('[data-brand-logo]');
+      var headerLogo = e.target.closest('[data-header-logo]');
+      if (this.timeline.isActive()) return;
 
       if (link) {
         this.changeActiveLink(link);
@@ -5902,14 +5914,17 @@ var App = /*#__PURE__*/function () {
         this.handleIntroLinkClick(introLink);
       } else if (footerButton) {
         this.handleFooterButtonClick(footerButton);
+      } else if (brandLogo) {
+        this.handleBrandLogoClick(brandLogo);
+      } else if (headerLogo) {
+        this.handleHeaderLogoClick(headerLogo);
       }
     }
   }, {
     key: "handleNavigationLinkClick",
     value: function handleNavigationLinkClick(navLink) {
       var index = Number(navLink.getAttribute('data-index'));
-      var localTl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
-      localTl.add(this.animateOut(this.brandWines[this.currentScreen - 1])).add(this.animateIn(this.brandWines[index]));
+      this.timeline.add(this.animateOut(this.brandWines[this.currentScreen - 1])).add(this.animateIn(this.brandWines[index]));
       this.currentScreen = index + 1;
     }
   }, {
@@ -5923,12 +5938,11 @@ var App = /*#__PURE__*/function () {
       this.initNavigation(this.wrapper);
       this.changeActiveBrand(attribute);
       this.initBrandLinks();
-      var localTl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
 
       if (document.body.clientWidth > 1060) {
-        localTl.add(this.animateFooterOut(localTl)).add(this.animateIn(this.brandWines[0]));
+        this.timeline.add(this.animateFooterOut()).add(this.animateIn(this.brandWines[0]));
       } else {
-        localTl.add(function () {
+        gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline().add(function () {
           var coords = document.querySelector('.intro').getBoundingClientRect().height;
           window.scrollTo({
             top: coords,
@@ -5964,15 +5978,14 @@ var App = /*#__PURE__*/function () {
       var previousBrandWines = previousBrandWrapper.querySelectorAll('[data-brand-wine]');
       var currentBrand = document.querySelector("[data-brand=\"".concat(activeBrandAttribute, "\"]"));
       this.currentScreen = 1;
-      var changingTl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
       previousBrandWines.forEach(function (item) {
-        changingTl.add(_this4.animateOut(item), 0);
+        _this4.timeline.add(_this4.animateOut(item), 0);
       });
       this.totalScreens = currentBrand.querySelectorAll('[data-brand-wine]');
       this.logo = currentBrand.querySelector('[data-brand-logo]');
       this.brandWines = currentBrand.querySelectorAll('[data-brand-wine]');
       this.changeActiveBrand(activeBrandAttribute);
-      changingTl.add(this.initNavigation(currentBrand)).add(this.animateNavigationIn()).add(function () {
+      this.timeline.add(this.initNavigation(currentBrand)).add(this.animateNavigationIn()).add(function () {
         _this4.animateIn(_this4.brandWines[_this4.currentScreen - 1]);
       }).add(function () {
         _this4.initBrandLinks();
@@ -6000,6 +6013,8 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "handleIntroLinkClick",
     value: function handleIntroLinkClick(introLink) {
+      var _this5 = this;
+
       var attribute = introLink.getAttribute('data-intro-link');
       this.initMainItems(attribute);
       this.changeActiveBrand(attribute);
@@ -6010,17 +6025,25 @@ var App = /*#__PURE__*/function () {
         this.triggerAnimation('down');
         this.currentScreen = 1;
       } else {
-        document.body.className = "page page--".concat(attribute, " ").concat(this.activeClass);
+        gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline().add(function () {
+          document.body.className = "page ".concat(_this5.activeClass);
+        }, 0).add(function () {
+          var coords = document.querySelector('.intro').getBoundingClientRect().height;
+          window.scrollTo({
+            top: coords,
+            behavior: 'smooth'
+          });
+        }, 0);
       }
     }
   }, {
     key: "changeActiveBrand",
     value: function changeActiveBrand(activeBrandAttribute) {
-      var _this5 = this;
+      var _this6 = this;
 
       brands = brands.map(function (brand) {
         if (brand.name === activeBrandAttribute) {
-          _this5.activeClass = "page--".concat(brand.name);
+          _this6.activeClass = "page--".concat(brand.name);
           return _objectSpread(_objectSpread({}, brand), {}, {
             active: true
           });
@@ -6040,6 +6063,20 @@ var App = /*#__PURE__*/function () {
       } else {
         this.on();
       }
+    }
+  }, {
+    key: "handleBrandLogoClick",
+    value: function handleBrandLogoClick() {
+      this.timeline.add(this.animateOut(this.brandWines[this.currentScreen - 1])).add(this.animateIntroIn());
+      this.currentScreen = 0;
+    }
+  }, {
+    key: "handleHeaderLogoClick",
+    value: function handleHeaderLogoClick() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   }]);
 

@@ -1,7 +1,8 @@
 <?php
 
 $version             = '1.0.2';
-$base_url            = in_array( $_SERVER['REMOTE_ADDR'], [ '127.0.0.1', '::1' ] ) ? 'http://viavino' : 'https://viavino.it';
+// $base_url            = in_array( $_SERVER['REMOTE_ADDR'], [ '127.0.0.1', '::1' ] ) ? 'http://viavino/viavino-html' : 'https://viavino.it';
+$base_url            = in_array( $_SERVER['REMOTE_ADDR'], [ '127.0.0.1', '::1' ] ) ? 'http://viavino/' : 'https://viavino.it';
 $available_languages = [ 'en', 'it' ];
 $default_language    = current( $available_languages );
 
