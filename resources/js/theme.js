@@ -442,7 +442,7 @@ class App {
         this.currentScreen = 1;
 
         previousBrandWines.forEach(item => {
-            this.timeline.add(this.animateOut(item), 0);
+            gsap.timeline().add(this.animateOut(item), 0);
         });
 
         this.totalScreens = currentBrand.querySelectorAll('[data-brand-wine]');

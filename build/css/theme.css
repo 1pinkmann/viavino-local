@@ -673,11 +673,10 @@ a, a:focus {
   right: 0;
 }
 
-.page {
-  font-family: Montserrat, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #544545;
+@apply font-body antialiased {
+  .page {
+    color: #544545;
+  }
 }
 
 .container {
@@ -911,10 +910,20 @@ a, a:focus {
   transform: translate(-50%, -50%);
 }
 
-.wine__can img {
-  max-width: 216px;
-  max-height: 428px;
-  right: -50px;
+.wine__can img:not(.wine__can-shadow) {
+  width: 100%;
+  z-index: 1;
+}
+
+.wine__can {
+  width: 216px;
+  right: 50px;
+}
+
+.wine__can-shadow {
+  left: 85%;
+  height: 578px;
+  opacity: 0.8;
 }
 
 .wine--rosato {
@@ -1064,7 +1073,7 @@ a, a:focus {
 
 .section__button-image {
   transition: filter 0.3s ease-in-out;
-  max-height: 100%;
+  max-height: 550px;
   top: 50%;
 }
 
@@ -1100,7 +1109,7 @@ a, a:focus {
 
 .section__button:hover .section__button-image,
 .section__button:hover .section__button-logo {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 .section__button:hover .section__button-arrow {
@@ -1130,11 +1139,11 @@ a, a:focus {
 }
 
 .page--viavino .section__button-arrow--mascarada {
-  left: 110px;
+  left: 144px;
 }
 
 .page--viavino .section__button-arrow--rueDuVin {
-  right: 110px;
+  right: 144px;
   transform: rotateZ(180deg);
 }
 
@@ -1161,11 +1170,11 @@ a, a:focus {
 }
 
 .page--mascarada .section__button-arrow--rueDuVin {
-  left: 110px;
+  left: 144px;
 }
 
 .page--mascarada .section__button-arrow--viavino {
-  right: 110px;
+  right: 144px;
   transform: rotateZ(180deg);
 }
 
@@ -1192,11 +1201,11 @@ a, a:focus {
 }
 
 .page--rueDuVin .section__button-arrow--viavino {
-  left: 110px;
+  left: 144px;
 }
 
 .page--rueDuVin .section__button-arrow--mascarada {
-  right: 110px;
+  right: 144px;
   transform: rotateZ(180deg);
 }
 
@@ -1224,13 +1233,6 @@ a, a:focus {
 
   .wine {
     background: none;
-  }
-
-  .wine__can img {
-    max-width: 371px;
-    max-height: 734px;
-    right: -86px;
-    bottom: -5px;
   }
 
   .wine--rosato .wine__decor--1 img {
@@ -23855,12 +23857,6 @@ a, a:focus {
     line-height: 2;
   }
 
-  .wine__can img {
-    max-width: 300px;
-    max-height: unset;
-    right: -105px;
-  }
-
   .logo--section {
     top: 10px;
   }
@@ -23933,6 +23929,21 @@ a, a:focus {
   .intro__wrapper {
     justify-content: flex-start;
   }
+
+  .wine__can {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    width: 150px;
+    right: unset;
+  }
+
+  .wine__can-shadow {
+    left: 85%;
+    height: 110%;
+  }
 }
 
 @media (max-width: 989px) {
@@ -23943,6 +23954,18 @@ a, a:focus {
   .section__button-logo {
     max-width: 60%;
     top: 0;
+  }
+
+  .section__button-image {
+    max-height: 80%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 619px) {
+  .section__button-image {
+    max-height: 90%;
+    max-width: 70%;
   }
 }
 
@@ -23957,11 +23980,54 @@ a, a:focus {
   }
 
   .section__button-image {
-    max-width: 150%;
+    max-width: 85%;
+    top: 55%;
   }
 
   .intro__text--small {
     margin-bottom: 10px;
+  }
+
+  .section__button {
+    height: 512px;
+  }
+
+  .section__button-logo {
+    max-width: 50%;
+  }
+
+  .section__button-arrow {
+    top: 55%;
+  }
+
+  .page--viavino .section__button-arrow--mascarada {
+    left: 50%;
+  }
+
+  .page--viavino .section__button-arrow--rueDuVin {
+    right: 50%;
+  }
+
+  .page--mascarada .section__button-arrow--rueDuVin {
+    left: 50%;
+  }
+
+  .page--mascarada .section__button-arrow--viavino {
+    right: 50%;
+  }
+
+  .page--rueDuVin .section__button-arrow--viavino {
+    left: 50%;
+  }
+
+  .page--rueDuVin .section__button-arrow--mascarada {
+    right: 50%;
+  }
+}
+
+@media (max-width: 359px) {
+  .section__button-image {
+    max-width: 95%;
   }
 }
 

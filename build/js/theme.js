@@ -5979,7 +5979,7 @@ var App = /*#__PURE__*/function () {
       var currentBrand = document.querySelector("[data-brand=\"".concat(activeBrandAttribute, "\"]"));
       this.currentScreen = 1;
       previousBrandWines.forEach(function (item) {
-        _this4.timeline.add(_this4.animateOut(item), 0);
+        gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline().add(_this4.animateOut(item), 0);
       });
       this.totalScreens = currentBrand.querySelectorAll('[data-brand-wine]');
       this.logo = currentBrand.querySelector('[data-brand-logo]');

@@ -39,7 +39,7 @@ a, a:focus
 
 .page
     @apply font-body antialiased
-    color: #544545
+        color: #544545
 
 .container
     @apply px-6
@@ -180,7 +180,7 @@ a, a:focus
 .dialog__links span
     font-size: .625rem
 
-.footer__links 
+.footer__links
     z-index: 14
 
 .main
@@ -191,7 +191,7 @@ a, a:focus
 .brand-link
     display: flex
     align-items: center
-    
+
     font-weight: 700
     letter-spacing: 2px
     text-transform: uppercase
@@ -211,7 +211,7 @@ a, a:focus
 .brand-link__icon
     width: 24px
     height: 24px
-    
+
 .brand-link__text + .brand-link__icon, .brand-link__icon + .brand-link__text
     margin-left: 20px
 
@@ -228,10 +228,18 @@ a, a:focus
     left: 50%
     transform: translate(-50%, -50%)
 
-.wine__can img
-    max-width: 216px
-    max-height: 428px
-    right: -50px
+.wine__can img:not(.wine__can-shadow)
+    width: 100%
+    z-index: 1
+
+.wine__can
+    width: 216px
+    right: 50px
+
+.wine__can-shadow
+    left: 85%
+    height: 578px
+    opacity: 0.8
 
 .wine--rosato
     background: linear-gradient(360deg, #FFFFFF 0%, #FAEDED 100%)
@@ -348,7 +356,7 @@ a, a:focus
 
 .section__button-image
     transition: filter 0.3s ease-in-out
-    max-height: 100%
+    max-height: 550px
     top: 50%
 
 .section__button--viavino
@@ -360,7 +368,7 @@ a, a:focus
 .section__button--mascarada
     background-color: #F0F3DD
 
-.section__button-logo 
+.section__button-logo
     left: 50%
     transform: translateX(-50%)
 
@@ -377,10 +385,9 @@ a, a:focus
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
     pointer-events: none
 
-
 .section__button:hover .section__button-image,
 .section__button:hover .section__button-logo
-    filter: brightness(120%)
+    filter: brightness(110%)
 
 .section__button:hover .section__button-arrow
     opacity: 1
@@ -405,10 +412,10 @@ a, a:focus
     transform: translateY(-50%)
 
 .page--viavino .section__button-arrow--mascarada
-    left: 110px
+    left: 144px
 
 .page--viavino .section__button-arrow--rueDuVin
-    right: 110px
+    right: 144px
     transform: rotateZ(180deg)
 
 //mascarada footer
@@ -431,10 +438,10 @@ a, a:focus
     transform: translateY(-50%)
 
 .page--mascarada .section__button-arrow--rueDuVin
-    left: 110px
+    left: 144px
 
 .page--mascarada .section__button-arrow--viavino
-    right: 110px
+    right: 144px
     transform: rotateZ(180deg)
 
 //rueDuVin footer
@@ -457,10 +464,10 @@ a, a:focus
     transform: translateY(-50%)
 
 .page--rueDuVin .section__button-arrow--viavino
-    left: 110px
+    left: 144px
 
 .page--rueDuVin .section__button-arrow--mascarada
-    right: 110px
+    right: 144px
     transform: rotateZ(180deg)
 
 @screen lg
@@ -482,12 +489,6 @@ a, a:focus
 
     .wine
         background: none
-
-    .wine__can img
-        max-width: 371px
-        max-height: 734px
-        right: -86px
-        bottom: -5px
 
     .wine--rosato .wine__decor--1 img
         max-width: 213px
@@ -538,7 +539,7 @@ a, a:focus
     .page--mascarada:not(.page--intro) .section--mascarada
         z-index: 1
 
-    .page--footer .section--buttons 
+    .page--footer .section--buttons
         z-index: 10
 
     .page--rosato .background
@@ -684,10 +685,10 @@ a, a:focus
 
 @media (max-width: 1399px)
 
-    .wine__type 
+    .wine__type
         font-size: 18px
 
-    .wine__name 
+    .wine__name
         font-size: 50px
         line-height: 1
         margin-bottom: 9px
@@ -696,11 +697,6 @@ a, a:focus
         font-size: 16px
         line-height: 2
 
-    .wine__can img 
-        max-width: 300px
-        max-height: unset
-        right: -105px
-
     .logo--section
         top: 10px
 
@@ -708,25 +704,24 @@ a, a:focus
         font-size: 14px
         top: 32px
 
-    .brand-link--left 
+    .brand-link--left
         left: 20px
 
-    .brand-link--right 
+    .brand-link--right
         right: 20px
 
-    .brand-link__icon 
+    .brand-link__icon
         width: 19px
         height: 19px
 
-    .brand-link__text + .brand-link__icon, .brand-link__icon + .brand-link__text 
+    .brand-link__text + .brand-link__icon, .brand-link__icon + .brand-link__text
         margin-left: 10px
 
-    .wine .wine__decor--1 img 
+    .wine .wine__decor--1 img
         max-width: 177px
         max-height: unset
         top: -9px
         left: 5px
-
 
 @media (max-width: 1059px)
 
@@ -756,18 +751,42 @@ a, a:focus
 
     .intro__text--small
         margin-bottom: 20px
-    
+
     .intro__wrapper
         justify-content: flex-start
 
+    .wine__can
+        position: relative
+        margin-left: auto
+        margin-right: auto
+        margin-top: 50px
+        margin-bottom: 40px
+        width: 150px
+        right: unset
+
+    .wine__can-shadow 
+        left: 85%
+        height: 110%
+
+
 @media (max-width: 989px)
 
-    .page--mascarada .section__button-arrow--rueDuVin 
+    .page--mascarada .section__button-arrow--rueDuVin
         left: 80px
 
     .section__button-logo
         max-width: 60%
         top: 0
+
+    .section__button-image 
+        max-height: 80%
+        max-width: 50%
+
+@media (max-width: 619px)
+
+    .section__button-image 
+        max-height: 90%
+        max-width: 70%
 
 
 @media (max-width: 479px)
@@ -780,7 +799,40 @@ a, a:focus
         padding: 0 10px
 
     .section__button-image
-        max-width: 150%
+        max-width: 85%
+        top: 55%
 
     .intro__text--small
         margin-bottom: 10px
+
+    .section__button
+        height: 512px
+
+    .section__button-logo 
+        max-width: 50%
+
+    .section__button-arrow
+        top: 55%
+
+    .page--viavino .section__button-arrow--mascarada
+        left: 50%
+
+    .page--viavino .section__button-arrow--rueDuVin
+        right: 50%
+
+    .page--mascarada .section__button-arrow--rueDuVin
+        left: 50%
+
+    .page--mascarada .section__button-arrow--viavino
+        right: 50%
+
+    .page--rueDuVin .section__button-arrow--viavino
+        left: 50%
+
+    .page--rueDuVin .section__button-arrow--mascarada
+        right: 50%
+
+@media (max-width: 359px)
+
+    .section__button-image
+        max-width: 95%
