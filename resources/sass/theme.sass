@@ -350,23 +350,44 @@ a, a:focus
 .fill-sangria
     fill: #FF9025
 
+.section--buttons:before 
+    content: ''
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    top: 0
+    height: 100%
+    width: 2px
+    background-color: #e9d3d3f5
+    z-index: 2
+
 .section__button
     width: 50%
     height: 100%
+    overflow: hidden
 
-.section__button-image
-    transition: filter 0.3s ease-in-out
-    max-height: 550px
-    top: 50%
+.section__button-image-wrapper
+    width: 206px
+    display: flex
+    align-items: center
+    transition: filter 0.2s ease-out
+
+.section__button-image 
+    z-index: 2
+
+.section__can-shadow 
+    left: 85%
+    height: 100%
+    opacity: .8
 
 .section__button--viavino
     background-color: #FAEDED
 
 .section__button--rueDuVin
-    background-color: #F9EEE2
+    background-color: #FCE9E9
 
 .section__button--mascarada
-    background-color: #F0F3DD
+    background-color: #FCEEEF
 
 .section__button-logo
     left: 50%
@@ -385,7 +406,7 @@ a, a:focus
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
     pointer-events: none
 
-.section__button:hover .section__button-image,
+.section__button:hover .section__button-image-wrapper,
 .section__button:hover .section__button-logo
     filter: brightness(110%)
 
@@ -400,16 +421,14 @@ a, a:focus
 .page--viavino .section__button--mascarada
     left: 0
 
-.page--viavino .section__button-image--mascarada
-    transform: translateY(-50%) rotateY(180deg)
-    left: 0
+.page--viavino .section__button-image-wrapper--mascarada
+    left: -100px
 
 .page--viavino .section__button--rueDuVin
     right: 0
 
-.page--viavino .section__button-image--rueDuVin
-    right: 0
-    transform: translateY(-50%)
+.page--viavino .section__button-image-wrapper--rueDuVin
+    right: -100px
 
 .page--viavino .section__button-arrow--mascarada
     left: 144px
@@ -426,16 +445,14 @@ a, a:focus
 .page--mascarada .section__button--rueDuVin
     left: 0
 
-.page--mascarada .section__button-image--rueDuVin
-    left: 0
-    transform: translateY(-50%) rotateY(180deg)
+.page--mascarada .section__button-image-wrapper--rueDuVin
+    left: -100px
 
 .page--mascarada .section__button--viavino
     right: 0
 
-.page--mascarada .section__button-image--viavino
-    right: 0
-    transform: translateY(-50%)
+.page--mascarada .section__button-image-wrapper--viavino
+    right: -100px
 
 .page--mascarada .section__button-arrow--rueDuVin
     left: 144px
@@ -452,16 +469,14 @@ a, a:focus
 .page--rueDuVin .section__button--viavino
     left: 0
 
-.page--rueDuVin .section__button-image--viavino
-    left: 0
-    transform: translateY(-50%) rotateY(180deg)
+.page--rueDuVin .section__button-image-wrapper--viavino
+    left: -100px
 
 .page--rueDuVin .section__button--mascarada
     right: 0
 
-.page--rueDuVin .section__button-image--mascarada
-    right: 0
-    transform: translateY(-50%)
+.page--rueDuVin .section__button-image-wrapper--mascarada
+    right: -100px
 
 .page--rueDuVin .section__button-arrow--viavino
     left: 144px
@@ -745,6 +760,8 @@ a, a:focus
         display: block
         opacity: 1
         visibility: visible
+        height: 622px
+        position: relative
 
     .intro__text
         margin-bottom: 0
@@ -778,15 +795,31 @@ a, a:focus
         max-width: 60%
         top: 0
 
-    .section__button-image 
-        max-height: 80%
-        max-width: 50%
+    .section__button-image-wrapper 
+        width: 150px
 
-@media (max-width: 619px)
+    //viavino footer
 
-    .section__button-image 
-        max-height: 90%
-        max-width: 70%
+    .page--viavino .section__button-image-wrapper--mascarada
+        left: -75px
+
+    .page--viavino .section__button-image-wrapper--rueDuVin
+        right: -75px
+
+    //mascarada footer
+    .page--mascarada .section__button-image-wrapper--rueDuVin
+        left: -75px
+
+    .page--mascarada .section__button-image-wrapper--viavino
+        right: -75px
+
+    //rueDuVin footer
+
+    .page--rueDuVin .section__button-image-wrapper--viavino
+        left: -75px
+
+    .page--rueDuVin .section__button-image-wrapper--mascarada
+        right: -75px
 
 
 @media (max-width: 479px)
@@ -797,10 +830,6 @@ a, a:focus
 
     .intro__link
         padding: 0 10px
-
-    .section__button-image
-        max-width: 85%
-        top: 55%
 
     .intro__text--small
         margin-bottom: 10px
@@ -832,7 +861,56 @@ a, a:focus
     .page--rueDuVin .section__button-arrow--mascarada
         right: 50%
 
+    .section__button-image-wrapper 
+        width: 120px
+
+    //viavino footer
+
+    .page--viavino .section__button-image-wrapper--mascarada
+        left: -60px
+
+    .page--viavino .section__button-image-wrapper--rueDuVin
+        right: -60px
+
+    //mascarada footer
+    .page--mascarada .section__button-image-wrapper--rueDuVin
+        left: -60px
+
+    .page--mascarada .section__button-image-wrapper--viavino
+        right: -60px
+
+    //rueDuVin footer
+
+    .page--rueDuVin .section__button-image-wrapper--viavino
+        left: -60px
+
+    .page--rueDuVin .section__button-image-wrapper--mascarada
+        right: -60px
+
 @media (max-width: 359px)
 
-    .section__button-image
-        max-width: 95%
+    .section__button-image-wrapper 
+        width: 110px
+
+    //viavino footer
+
+    .page--viavino .section__button-image-wrapper--mascarada
+        left: -50px
+
+    .page--viavino .section__button-image-wrapper--rueDuVin
+        right: -50px
+
+    //mascarada footer
+    .page--mascarada .section__button-image-wrapper--rueDuVin
+        left: -50px
+
+    .page--mascarada .section__button-image-wrapper--viavino
+        right: -50px
+
+    //rueDuVin footer
+
+    .page--rueDuVin .section__button-image-wrapper--viavino
+        left: -50px
+
+    .page--rueDuVin .section__button-image-wrapper--mascarada
+        right: -50px
