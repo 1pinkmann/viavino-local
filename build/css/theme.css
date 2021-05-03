@@ -673,10 +673,11 @@ a, a:focus {
   right: 0;
 }
 
-@apply font-body antialiased {
-  .page {
-    color: #544545;
-  }
+.page {
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #544545;
 }
 
 .container {
@@ -798,6 +799,7 @@ a, a:focus {
 .intro__text--small {
   margin-bottom: 15px;
   font-size: 17px;
+  text-transform: uppercase;
 }
 
 .intro__links {
@@ -23938,6 +23940,10 @@ a, a:focus {
     position: relative;
   }
 
+  .section__button {
+    height: 100%;
+  }
+
   .intro__text {
     margin-bottom: 0;
   }
@@ -24019,7 +24025,7 @@ a, a:focus {
     margin-bottom: 10px;
   }
 
-  .section__button {
+  .section--buttons {
     height: 512px;
   }
 
@@ -24111,6 +24117,88 @@ a, a:focus {
 
   .page--rueDuVin .section__button-image-wrapper--mascarada {
     right: -50px;
+  }
+}
+
+@media (max-height: 830px) and (min-width: 1060px) {
+  .intro__decor--1 {
+    background-size: auto 40%;
+  }
+
+  .intro__wrapper-outer {
+    padding-bottom: 10rem !important;
+  }
+}
+
+@media (max-height: 750px) and (min-width: 1060px) {
+  .wine__description {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 1rem !important;
+  }
+
+  .wine__name {
+    font-size: 52px;
+    line-height: 1.4;
+  }
+
+  .wine__features {
+    font-size: 14px;
+  }
+
+  .wine__can {
+    width: 170px;
+    right: 80px;
+  }
+
+  .wine__can-shadow {
+    height: 92%;
+  }
+
+  .section__button-image-wrapper {
+    width: 160px;
+  }
+
+  .page--viavino .section__button-image-wrapper--mascarada {
+    left: -80px;
+  }
+
+  .page--viavino .section__button-image-wrapper--rueDuVin {
+    right: -80px;
+  }
+
+  .page--mascarada .section__button-image-wrapper--rueDuVin {
+    left: -80px;
+  }
+
+  .page--mascarada .section__button-image-wrapper--viavino {
+    right: -80px;
+  }
+
+  .page--rueDuVin .section__button-image-wrapper--viavino {
+    left: -80px;
+  }
+
+  .page--rueDuVin .section__button-image-wrapper--mascarada {
+    right: -80px;
+  }
+}
+
+@media (max-height: 660px) and (min-width: 1060px) {
+  .intro__decor--1 {
+    background-size: auto 35%;
+  }
+}
+
+@media (max-height: 640px) and (max-width: 1059px) {
+  .intro__wrapper-outer {
+    padding-top: 5rem !important;
+  }
+}
+
+@media (max-height: 600px) and (max-width: 1059px) {
+  .intro__decor--1 {
+    background-size: auto 45%;
   }
 }
 
