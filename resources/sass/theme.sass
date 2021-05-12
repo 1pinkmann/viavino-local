@@ -69,6 +69,13 @@ a, a:focus
 .logo--mascarada
     width: 161px
 
+.logo--dialog 
+    display: none
+    height: 60px
+
+.page--mascarada .logo--mascarada, .page--rueDuVin .logo--rueDuVin, .page--viavino .logo--viavino
+    display: block
+
 .logo__icon
     width: 100%
     height: 100%
@@ -200,7 +207,7 @@ a, a:focus
 
     position: absolute
     top: 50px
-    z-index: 99
+    z-index: 2
     transition: opacity 0.2s ease-in-out
 
 .brand-link--left
@@ -548,15 +555,18 @@ a, a:focus
         transform: translate3d(0, 0, 0)
 
     .page--intro .intro
-        z-index: 1
+        z-index: 3
 
     .page--viavino:not(.page--intro) .section--viavino,
     .page--rueDuVin:not(.page--intro) .section--rueDuVin,
     .page--mascarada:not(.page--intro) .section--mascarada
         z-index: 1
 
+    .section--buttons 
+        z-index: -1
+
     .page--footer .section--buttons
-        z-index: 10
+        z-index: 3
 
     .page--rosato .background
         background-color: #FAEDED
