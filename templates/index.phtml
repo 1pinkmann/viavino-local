@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="<?php echo $base_url; ?>">
     <title>WINE TO GO</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="<?php echo $base_url; ?>build/css/theme.css?v=<?php echo $version; ?>" rel="stylesheet">
-    <link href="<?php echo $base_url; ?>build/img/favicon-2.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="<?php echo $base_url; ?>build/img/favicon-2.png" rel="icon" type="image/png" sizes="192x192">
-    <link href="<?php echo $base_url; ?>build/img/favicon-2.png" rel="icon" type="image/png" sizes="32x32">
-    <link href="<?php echo $base_url; ?>build/img/favicon-2.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="<?php echo $base_url; ?>/build/css/theme.css?v=<?php echo $version; ?>" rel="stylesheet">
+    <link href="<?php echo $base_url; ?>/build/img/favicon-2.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="<?php echo $base_url; ?>/build/img/favicon-2.png" rel="icon" type="image/png" sizes="192x192">
+    <link href="<?php echo $base_url; ?>/build/img/favicon-2.png" rel="icon" type="image/png" sizes="32x32">
+    <link href="<?php echo $base_url; ?>/build/img/favicon-2.png" rel="icon" type="image/png" sizes="16x16">
 </head>
 
 <body class="page">
@@ -31,17 +32,17 @@
         <div class="header__bar header__bar--sticky fixed flex justify-center items-center h-20 w-full px-8 z-10 lg:hidden">
             <button class="header__logo header__logo--viavino logo logo--viavino" data-header-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#viavino" />
+                    <use xlink:href="/build/sprite.svg#viavino" />
                 </svg>
             </button>
             <button class="header__logo header__logo--rueDuVin logo logo--rueDuVin" data-header-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#rueDuVin" />
+                    <use xlink:href="/build/sprite.svg#rueDuVin" />
                 </svg>
             </button>
             <button class="header__logo header__logo--mascarada logo logo--mascarada" data-header-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#mascarada" />
+                    <use xlink:href="/build/sprite.svg#mascarada" />
                 </svg>
             </button>
         </div>
@@ -75,7 +76,7 @@
 
         <button class="brand-link brand-link--left" data-brand-link="mascarada">
             <svg class="brand-link__icon">
-                <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#arrow" />
+                <use xlink:href="/build/sprite.svg#arrow" />
             </svg>
             <span class="brand-link__text" data-brand-link-text></span>
         </button>
@@ -83,7 +84,7 @@
         <button class="brand-link brand-link--right" data-brand-link="rueDuVin">
             <span class="brand-link__text" data-brand-link-text></span>
             <svg class="brand-link__icon">
-                <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#arrow" />
+                <use xlink:href="/build/sprite.svg#arrow" />
             </svg>
         </button>
 
@@ -106,17 +107,17 @@
                     <div class="intro__links" data-intro-links>
                         <button class="intro__link">
                             <svg class="logo intro__logo fill-rose intro__logo--viavino" data-intro-link="viavino">
-                                <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#viavino" />
+                                <use xlink:href="/build/sprite.svg#viavino" />
                             </svg>
                         </button>
                         <button class="intro__link">
                             <svg class="logo intro__logo intro__logo--rueDuVin" data-intro-link="rueDuVin">
-                                <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#rueDuVin" />
+                                <use xlink:href="/build/sprite.svg#rueDuVin" />
                             </svg>
                         </button>
                         <button class="intro__link">
                             <svg class="logo intro__logo intro__logo--mascarada" data-intro-link="mascarada">
-                                <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#mascarada" />
+                                <use xlink:href="/build/sprite.svg#mascarada" />
                             </svg>
                         </button>
                     </div>
@@ -130,7 +131,7 @@
             <!-- logo -->
             <button class="logo logo--section logo--viavino absolute" data-brand-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#viavino" />
+                    <use xlink:href="/build/sprite.svg#viavino" />
                 </svg>
             </button>
             <!-- /logo -->
@@ -139,12 +140,12 @@
             <div class="wine wine--rosato overflow-hidden w-full flex flex-col justify-center" data-brand-wine="rosato">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rosato-veneto-igt.png" srcset="<?php echo $base_url; ?>build/img/rosato-veneto-igt@2x.png 2x" alt="<?php echo $__['rosato.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rosato-veneto-igt.png" srcset="<?php echo $base_url; ?>/build/img/rosato-veneto-igt@2x.png 2x" alt="<?php echo $__['rosato.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rosato-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>build/img/rosato-veneto-igt-decor-1@2x.png 2x" alt="" width="213" height="379">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rosato-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/rosato-veneto-igt-decor-1@2x.png 2x" alt="" width="213" height="379">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
@@ -222,12 +223,12 @@
             <div class="wine wine--rosso overflow-hidden w-full flex flex-col justify-center" data-brand-wine="rosso">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rosso-veneto-igt.png" srcset="<?php echo $base_url; ?>build/img/rosso-veneto-igt@2x.png 2x" alt="<?php echo $__['rosso.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rosso-veneto-igt.png" srcset="<?php echo $base_url; ?>/build/img/rosso-veneto-igt@2x.png 2x" alt="<?php echo $__['rosso.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rosso-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>build/img/rosso-veneto-igt-decor-1@2x.png 2x" alt="" width="151" height="355">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rosso-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/rosso-veneto-igt-decor-1@2x.png 2x" alt="" width="151" height="355">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
@@ -305,12 +306,12 @@
             <div class="wine wine--bianco overflow-hidden w-full flex flex-col justify-center" data-brand-wine="bianco">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/bianco-veneto-igt.png" srcset="<?php echo $base_url; ?>build/img/bianco-veneto-igt@2x.png 2x" alt="<?php echo $__['bianco.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/bianco-veneto-igt.png" srcset="<?php echo $base_url; ?>/build/img/bianco-veneto-igt@2x.png 2x" alt="<?php echo $__['bianco.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/bianco-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>build/img/bianco-veneto-igt-decor-1@2x.png 2x" alt="" width="255" height="243">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/bianco-veneto-igt-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/bianco-veneto-igt-decor-1@2x.png 2x" alt="" width="255" height="243">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
@@ -390,7 +391,7 @@
             <!-- logo -->
             <button class="logo logo--section logo--rueDuVin absolute" data-brand-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#rueDuVin" />
+                    <use xlink:href="/build/sprite.svg#rueDuVin" />
                 </svg>
             </button>
             <!-- /logo -->
@@ -399,17 +400,17 @@
             <div class="wine wine--rose overflow-hidden w-full flex flex-col justify-center" data-brand-wine="rose">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-rose.png" srcset="<?php echo $base_url; ?>build/img/rue-rose@2x.png 2x" alt="<?php echo $__['rose.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-rose.png" srcset="<?php echo $base_url; ?>/build/img/rue-rose@2x.png 2x" alt="<?php echo $__['rose.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-rose-decor-1.png" srcset="<?php echo $base_url; ?>build/img/rue-rose-decor-1@2x.png 2x" alt="" width="199" height="349">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-rose-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/rue-rose-decor-1@2x.png 2x" alt="" width="199" height="349">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-rose">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#france" />
+                            <use xlink:href="/build/sprite.svg#france" />
                         </svg>
                     </div>
 
@@ -479,17 +480,17 @@
             <div class="wine wine--rouge overflow-hidden w-full flex flex-col justify-center" data-brand-wine="rouge">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-rouge.png" srcset="<?php echo $base_url; ?>build/img/rue-rouge@2x.png 2x" alt="<?php echo $__['rouge.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-rouge.png" srcset="<?php echo $base_url; ?>/build/img/rue-rouge@2x.png 2x" alt="<?php echo $__['rouge.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-rouge-decor-1.png" srcset="<?php echo $base_url; ?>build/img/rue-rouge-decor-1@2x.png 2x" alt="" width="255" height="243">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-rouge-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/rue-rouge-decor-1@2x.png 2x" alt="" width="255" height="243">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-rose">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#france" />
+                            <use xlink:href="/build/sprite.svg#france" />
                         </svg>
                     </div>
 
@@ -559,17 +560,17 @@
             <div class="wine wine--blanc overflow-hidden w-full flex flex-col justify-center" data-brand-wine="blanc">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-blanc.png" srcset="<?php echo $base_url; ?>build/img/rue-blanc@2x.png 2x" alt="<?php echo $__['blanc.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-blanc.png" srcset="<?php echo $base_url; ?>/build/img/rue-blanc@2x.png 2x" alt="<?php echo $__['blanc.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/rue-blanc-decor-1.png" srcset="<?php echo $base_url; ?>build/img/rue-blanc-decor-1@2x.png 2x" alt="" width="213" height="379">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/rue-blanc-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/rue-blanc-decor-1@2x.png 2x" alt="" width="213" height="379">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-yellow">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#france" />
+                            <use xlink:href="/build/sprite.svg#france" />
                         </svg>
                     </div>
 
@@ -642,7 +643,7 @@
             <!-- logo -->
             <button class="logo logo--section logo--mascarada absolute" data-brand-logo>
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#mascarada" />
+                    <use xlink:href="/build/sprite.svg#mascarada" />
                 </svg>
             </button>
             <!-- /logo -->
@@ -651,17 +652,17 @@
             <div class="wine wine--rosado overflow-hidden w-full flex flex-col justify-center" data-brand-wine="rosado">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-rosado.png" srcset="<?php echo $base_url; ?>build/img/mascarada-rosado@2x.png 2x" alt="<?php echo $__['rosado.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-rosado.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-rosado@2x.png 2x" alt="<?php echo $__['rosado.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-rosado-decor-1.png" srcset="<?php echo $base_url; ?>build/img/mascarada-rosado-decor-1@2x.png 2x" alt="" width="151" height="355">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-rosado-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-rosado-decor-1@2x.png 2x" alt="" width="151" height="355">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-rosado">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#spain" />
+                            <use xlink:href="/build/sprite.svg#spain" />
                         </svg>
                     </div>
 
@@ -731,17 +732,17 @@
             <div class="wine wine--tinto overflow-hidden w-full flex flex-col justify-center" data-brand-wine="tinto">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-tinto.png" srcset="<?php echo $base_url; ?>build/img/mascarada-tinto@2x.png 2x" alt="<?php echo $__['tinto.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-tinto.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-tinto@2x.png 2x" alt="<?php echo $__['tinto.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-tinto-decor-1.png" srcset="<?php echo $base_url; ?>build/img/mascarada-tinto-decor-1@2x.png 2x" alt="" width="255" height="243">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-tinto-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-tinto-decor-1@2x.png 2x" alt="" width="255" height="243">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-tinto">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#spain" />
+                            <use xlink:href="/build/sprite.svg#spain" />
                         </svg>
                     </div>
 
@@ -811,17 +812,17 @@
             <div class="wine wine--blanco overflow-hidden w-full flex flex-col justify-center" data-brand-wine="blanco">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-blanco.png" srcset="<?php echo $base_url; ?>build/img/mascarada-blanco@2x.png 2x" alt="<?php echo $__['blanco.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-blanco.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-blanco@2x.png 2x" alt="<?php echo $__['blanco.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-blanco-decor-1.png" srcset="<?php echo $base_url; ?>build/img/mascarada-blanco-decor-1@2x.png 2x" alt="" width="213" height="379">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-blanco-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-blanco-decor-1@2x.png 2x" alt="" width="213" height="379">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-green">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#spain" />
+                            <use xlink:href="/build/sprite.svg#spain" />
                         </svg>
                     </div>
 
@@ -892,17 +893,17 @@
             <div class="wine wine--sangria overflow-hidden w-full flex flex-col justify-center" data-brand-wine="sangria">
                 <div class="container mx-auto relative">
                     <div class="wine__can select-none flex flex-col h-full items-center justify-center lg:absolute">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-sangria.png" srcset="<?php echo $base_url; ?>build/img/mascarada-sangria@2x.png 2x" alt="<?php echo $__['sangria.name']; ?>" width="371" height="734">
-                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-sangria.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-sangria@2x.png 2x" alt="<?php echo $__['sangria.name']; ?>" width="371" height="734">
+                        <img class="absolute wine__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                     </div>
 
                     <div class="wine__decor wine__decor--1 select-none absolute flex flex-col h-full items-center justify-center top-0 left-0">
-                        <img class="relative" src="<?php echo $base_url; ?>build/img/mascarada-sangria-decor-1.png" srcset="<?php echo $base_url; ?>build/img/mascarada-sangria-decor-1@2x.png 2x" alt="" width="255" height="243">
+                        <img class="relative" src="<?php echo $base_url; ?>/build/img/mascarada-sangria-decor-1.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-sangria-decor-1@2x.png 2x" alt="" width="255" height="243">
                     </div>
 
                     <div class="wine__decor wine__decor--2 select-none absolute flex w-full items-center justify-end lg:justify-center bottom-0 left-0">
                         <svg class="relative fill-sangria">
-                            <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#spain" />
+                            <use xlink:href="/build/sprite.svg#spain" />
                         </svg>
                     </div>
 
@@ -978,41 +979,41 @@
 
             <button class="section__button section__button--viavino absolute flex items-center" data-footer-button="viavino">
                 <div class="section__button-image-wrapper section__button-image-wrapper--viavino absolute">
-                    <img class="relative section__button-image" src="<?php echo $base_url; ?>build/img/rosato-veneto-igt.png" srcset="<?php echo $base_url; ?>build/img/rosato-veneto-igt@2x.png 2x" alt="<?php echo $__['rosato.name']; ?>" width="371" height="734">
-                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                    <img class="relative section__button-image" src="<?php echo $base_url; ?>/build/img/rosato-veneto-igt.png" srcset="<?php echo $base_url; ?>/build/img/rosato-veneto-igt@2x.png 2x" alt="<?php echo $__['rosato.name']; ?>" width="371" height="734">
+                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                 </div>
                 <svg class="section__button-arrow section__button-arrow--viavino absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#arrow" />
+                    <use xlink:href="/build/sprite.svg#arrow" />
                 </svg>
                 <svg class="logo section__button-logo section__button-logo--viavino logo--viavino absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#viavino" />
+                    <use xlink:href="/build/sprite.svg#viavino" />
                 </svg>
             </button>
 
             <button class="section__button section__button--rueDuVin absolute flex items-center" data-footer-button="rueDuVin">
 
                 <div class="section__button-image-wrapper section__button-image-wrapper--rueDuVin absolute">
-                    <img class="relative section__button-image" src="<?php echo $base_url; ?>build/img/rue-rose.png" srcset="<?php echo $base_url; ?>build/img/rue-rose@2x.png 2x" alt="<?php echo $__['rose.name']; ?>" width="371" height="734">
-                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                    <img class="relative section__button-image" src="<?php echo $base_url; ?>/build/img/rue-rose.png" srcset="<?php echo $base_url; ?>/build/img/rue-rose@2x.png 2x" alt="<?php echo $__['rose.name']; ?>" width="371" height="734">
+                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                 </div>
                 <svg class="section__button-arrow section__button-arrow--rueDuVin absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#arrow" />
+                    <use xlink:href="/build/sprite.svg#arrow" />
                 </svg>
                 <svg class="logo section__button-logo section__button-logo--rueDuVin logo--rueDuVin absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#rueDuVin" />
+                    <use xlink:href="/build/sprite.svg#rueDuVin" />
                 </svg>
             </button>
 
             <button class="section__button section__button--mascarada absolute flex items-center" data-footer-button="mascarada">
                 <div class="section__button-image-wrapper section__button-image-wrapper--mascarada absolute">
-                    <img class="relative section__button-image" src="<?php echo $base_url; ?>build/img/mascarada-rosado.png" srcset="<?php echo $base_url; ?>build/img/mascarada-rosado@2x.png 2x" alt="<?php echo $__['rosado.name']; ?>" width="371" height="734">
-                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>build/img/shadow.png" srcset="<?php echo $base_url; ?>build/img/shadow@2x.png 2x" alt="">
+                    <img class="relative section__button-image" src="<?php echo $base_url; ?>/build/img/mascarada-rosado.png" srcset="<?php echo $base_url; ?>/build/img/mascarada-rosado@2x.png 2x" alt="<?php echo $__['rosado.name']; ?>" width="371" height="734">
+                    <img class="absolute section__can-shadow" src="<?php echo $base_url; ?>/build/img/shadow.png" srcset="<?php echo $base_url; ?>/build/img/shadow@2x.png 2x" alt="">
                 </div>
                 <svg class="section__button-arrow section__button-arrow--mascarada absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#arrow" />
+                    <use xlink:href="/build/sprite.svg#arrow" />
                 </svg>
                 <svg class="logo section__button-logo section__button-logo--mascarada logo--mascarada absolute">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#mascarada" />
+                    <use xlink:href="/build/sprite.svg#mascarada" />
                 </svg>
             </button>
 
@@ -1058,19 +1059,19 @@
     <aside role="dialog" class="dialog z-10 lg:hidden">
         <div class="flex flex-col items-center justify-center h-full p-8">
 
-            <button class="logo--dialog logo logo--viavino mb-6">
+            <button class="logo--dialog logo logo--viavino mb-6" data-intro-link="viavino">
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#viavino" />
+                    <use xlink:href="/build/sprite.svg#viavino" />
                 </svg>
             </button>
-            <button class="logo--dialog logo logo--rueDuVin mb-6">
+            <button class="logo--dialog logo logo--rueDuVin mb-6" data-intro-link="rueDuVin">
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#rueDuVin" />
+                    <use xlink:href="/build/sprite.svg#rueDuVin" />
                 </svg>
             </button>
-            <button class="logo--dialog logo logo--mascarada mb-6">
+            <button class="logo--dialog logo logo--mascarada mb-6" data-intro-link="mascarada">
                 <svg class="logo__icon">
-                    <use xlink:href="<?php echo $base_url; ?>build/sprite.svg#mascarada" />
+                    <use xlink:href="/build/sprite.svg#mascarada" />
                 </svg>
             </button>
 
@@ -1124,7 +1125,7 @@
     </aside>
     <!-- /dialog -->
 
-    <script src="<?php echo $base_url; ?>build/js/theme.js?v=<?php echo $version; ?>"></script>
+    <script src="<?php echo $base_url; ?>/build/js/theme.js?v=<?php echo $version; ?>"></script>
 </body>
 
 </html>
